@@ -9,28 +9,44 @@ var searchInput = document.querySelector('#city-search')
 var search = document.querySelector('#search-button')
 var currentWeather = document.querySelector('#weather-today')
 var city = document.querySelector('#city-name')
+var textInput =document.querySelector('#text-input')
+var currentTemp = document.querySelector('#temp')
+var humid = document.querySelector('#humidity')
+var wind = document.querySelector('#wind')
+// var tempUnit =document.querySelector('imperial')
 // var temprature = document.querySelector('#temp')
 // var humid = document.querySelector('#humidity')
 
-function displayCurrentWeather(){
+function displayCurrentWeather(event){
+   event.preventDefault()
+// console.log("hello")
+
    
-
-
     var apiKey = "7f2d505fb6241cc054341ef830069eae";
     var weatherUrl = "api.openweathermap.org/data/2.5/forecast"
-    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + textInput.value  + "&appid=" + apiKey + "&units=imperial"
 
     fetch(requestUrl)
   .then(function(response) {
       return response.json();    
   }).then(function(weather){
-    for (var i = 0; i < weather.data.length; i++){
-        var title = weather.main[i].title
-        console.log('title', title)
-    }
+    console.log(weather)
+    // for (var i = 0; i < weather.length; i++)
+
+    city.textContent= weather.name
+    currentTemp.textContent= "Temperature: " + weather.main.temp + " F";
+    humid.textContent= "Humidity: " + weather.main.humidity +" %";
+    wind.textContent = " Wind speed: " + weather.wind.speed + " MPH";
+   
+    
+    // for (var i = 0; i < weather.main.length; i++){
+    //     var weather = weather.main[i].title
+    //     console.log('title', title)
+    // }
 })
 }
 
   
 
-searchInput.addEventListener('click', displayCurrentWeather);
+searchInput.addEventListener('submit', displayCurrentWeather);
+

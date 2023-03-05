@@ -33,7 +33,7 @@ function displayCurrentWeather(event){
     console.log(weather)
     // for (var i = 0; i < weather.length; i++)
 
-    city.textContent= weather.name
+    city.textContent= "Current weather in " + weather.name;
     currentTemp.textContent= "Temperature: " + weather.main.temp + " F";
     humid.textContent= "Humidity: " + weather.main.humidity +" %";
     wind.textContent = " Wind speed: " + weather.wind.speed + " MPH";

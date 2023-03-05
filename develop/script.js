@@ -1,3 +1,5 @@
+// enter city in search area
+// press search
 // display search city date and weather in weather now container
   
 // 5 days weather dsiplayed in each card

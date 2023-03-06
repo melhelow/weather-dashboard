@@ -47,14 +47,17 @@ function displayWeather(event){
     .then(function(response) {
         return response.json();    
     }).then(function(forecast){
-    console.log(_forecast_.list.slice(0,5))
-      for (var i = 0; i <  forecast.list.length; i++){
-        var forecastTemp = forecast.list[2].main.temp;
-        var forcastWind = forecast.list[2].wind.speed;
-        var forecastHumidity = forecast.list[2].main.humidity;
-        console.log(forecastTemp)
-        console.log(forcastWind)
-        console.log(forecastHumidity)
+    console.log(forecast)
+      for (var i = 0; i <forecast.length; i++){
+        var dayOne = document.createElement('p');
+        dayOne.textContent = forecast[i].main.temp;
+        firstDay.appendChild(dayOne);
+        // var forecastTemp = forecast.list[i].main.temp;
+        // var forcastWind = forecast.list[i].wind.speed;
+        // var forecastHumidity = forecast.list[i].main.humidity;
+        // console.log(forecastTemp)
+        // console.log(forcastWind)
+        // console.log(forecastHumidity)
 
         
     // humid.textContent= "Humidity: " + weather.main.humidity +" %";

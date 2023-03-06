@@ -3,6 +3,7 @@
 // display search city date and weather in weather now container
   
 // 5 days weather dsiplayed in each card
+// append each day data inside each card
 // save searched city below so user can reclick them use local storage
 // 
 var searchInput = document.querySelector('#city-search')
@@ -39,13 +40,26 @@ function displayWeather(event){
     humid.textContent= "Humidity: " + weather.main.humidity +" %";
     wind.textContent = " Wind speed: " + weather.wind.speed + " MPH";
 // 5 days
+      
     var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + textInput.value  + "&appid=" + apiKey + "&units=imperial"
-    
+    // var forecast = document.querySelector('#5-days') 
     fetch(requestUrl)
     .then(function(response) {
         return response.json();    
     }).then(function(forecast){
       console.log(forecast)
+      for (var i = 0; i <  forecast.list.length; i++){
+        var forecastTemp = forecast.list[2].main.temp;
+        var forcastWind = forecast.list[2].wind.speed;
+        var forecastHumidity = forecast.list[2].main.humidity;
+        console.log(forecastTemp)
+        console.log(forcastWind)
+        console.log(forecastHumidity)
+
+        
+    // humid.textContent= "Humidity: " + weather.main.humidity +" %";
+    // wind.textContent = " Wind speed: " + weather.wind.speed + " MPH";
+    }
     })
     
     // for (var i = 0; i < forecast.main.length; i++){
@@ -59,4 +73,3 @@ function displayWeather(event){
   
 
 searchInput.addEventListener('submit', displayWeather);
-

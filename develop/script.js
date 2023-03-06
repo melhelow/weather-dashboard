@@ -13,17 +13,18 @@ var textInput =document.querySelector('#text-input')
 var currentTemp = document.querySelector('#temp')
 var humid = document.querySelector('#humidity')
 var wind = document.querySelector('#wind')
+// var fiveDays = document.querySelector('#5-days')
 // var tempUnit =document.querySelector('imperial')
 // var temprature = document.querySelector('#temp')
 // var humid = document.querySelector('#humidity')
 
-function displayCurrentWeather(event){
+function displayWeather(event){
    event.preventDefault()
 // console.log("hello")
 
    
     var apiKey = "7f2d505fb6241cc054341ef830069eae";
-    var weatherUrl = "api.openweathermap.org/data/2.5/forecast"
+    // var weatherUrl = "api.openweathermap.org/data/2.5/forecast"
     var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + textInput.value  + "&appid=" + apiKey + "&units=imperial"
 
     fetch(requestUrl)
@@ -37,16 +38,25 @@ function displayCurrentWeather(event){
     currentTemp.textContent= "Temperature: " + weather.main.temp + " F";
     humid.textContent= "Humidity: " + weather.main.humidity +" %";
     wind.textContent = " Wind speed: " + weather.wind.speed + " MPH";
-   
+// 5 days
+    var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + textInput.value  + "&appid=" + apiKey + "&units=imperial"
     
-    // for (var i = 0; i < weather.main.length; i++){
-    //     var weather = weather.main[i].title
+    fetch(requestUrl)
+    .then(function(response) {
+        return response.json();    
+    }).then(function(forecast){
+      console.log(forecast)
+    })
+    
+    // for (var i = 0; i < forecast.main.length; i++){
+    //     var forecast = forecast.main[i].title
     //     console.log('title', title)
     // }
 })
 }
 
+
   
 
-searchInput.addEventListener('submit', displayCurrentWeather);
+searchInput.addEventListener('submit', displayWeather);
 

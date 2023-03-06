@@ -47,7 +47,7 @@ function displayWeather(event){
     .then(function(response) {
         return response.json();    
     }).then(function(forecast){
-      console.log(forecast)
+    console.log(_forecast_.list.slice(0,5))
       for (var i = 0; i <  forecast.list.length; i++){
         var forecastTemp = forecast.list[2].main.temp;
         var forcastWind = forecast.list[2].wind.speed;

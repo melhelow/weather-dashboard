@@ -65,7 +65,7 @@ function displayWeather(event){
         return response.json();    
     }).then(function(forecast){
     console.log(forecast.list)
-      for (var i = 3; i <forecast.list.length; i+=8){
+    //   for (var i = 3; i <forecast.list.length; i+=8){
         // console.log(forecast.list[i].main.temp)
         // console.log(forecast.list[i].main.humidity)
         // console.log(forecast.list[i].wind)
@@ -90,7 +90,7 @@ function displayWeather(event){
         dayFiveWind.textContent="speed:"+forecast.list[37].wind.speed + " MPH";
         dayFiveHumid.textContent="Hum."+forecast.list[37].main.humidity+" %";
          
-    }
+    
    
 
 })

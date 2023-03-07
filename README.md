@@ -17,11 +17,11 @@ in this 6th assignment  i started my own code
 ## usage
 the website contain HTML, CSS and JavaScript , Bootstrap and has been pushed to github repostiry.
 
-![Getting Started](./Develop/Screenshot%202023-02-25%20160852.png)
+![Getting Started](./develop/deployed-weather%20dashboard.png)
 
 ## deployed link
 
-https://melhelow.github.io/work-day-scheduler/
+https://melhelow.github.io/weather-dashboard/
 
 ## github 
 
